@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Colorful Paragraph</title>
+<style>
+    #colorful-paragraph {
+        padding: 20px;
+        border: 2px solid black;
+        width: 50%;
+        margin: 20px auto;
+    }
+</style>
+</head>
+<body>
+
+<div id="colorful-paragraph">
+    <p id="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vestibulum urna eget enim pretium, at vestibulum odio finibus. Nulla facilisi. Donec laoreet libero vel varius faucibus.</p>
+</div>
+
+<div>
+    <label for="text-color">Text Color (RGB):</label>
+    <input type="text" id="text-color" placeholder="Enter RGB values">
+</div>
+
+<div>
+    <label for="border-color">Border Color (RGB):</label>
+    <input type="text" id="border-color" placeholder="Enter RGB values">
+</div>
+
+<div>
+    <label for="border-width">Border Width:</label>
+    <input type="range" id="border-width" min="1" max="10" value="2">
+</div>
+
+<script>
+    document.getElementById('text-color').addEventListener('input', function() {
+        var rgb = this.value.split(',');
+        var color = 'rgb(' + rgb[0] + ',' + rgb[1] + ',' + rgb[2] + ')';
+        document.getElementById('text').style.color = color;
+    });
+
+    document.getElementById('border-color').addEventListener('input', function() {
+        var rgb = this.value.split(',');
+        var color = 'rgb(' + rgb[0] + ',' + rgb[1] + ',' + rgb[2] + ')';
+        document.getElementById('colorful-paragraph').style.borderColor = color;
+    });
+
+    document.getElementById('border-width').addEventListener('input', function() {
+        document.getElementById('colorful-paragraph').style.borderWidth = this.value + 'px';
+    });
+</script>
+
+
+</body>
+</html>
